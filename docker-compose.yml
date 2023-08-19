@@ -9,15 +9,5 @@ services:
       BOT_TOKEN: 
       MC_HOST: 
       MC_PASSWORD: 
-    networks:
-      app_net:
+      TZ: Asia/Tokyo
     restart: always
-
-networks:
-  app_net:
-    name: app_net
-    driver: bridge
-    ipam:
-     driver: default
-     config:
-       - subnet: 172.30.0.0/24
