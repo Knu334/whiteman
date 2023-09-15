@@ -28,6 +28,7 @@ public class WhiteListener extends ListenerAdapter {
 					event.reply(status.getServerStatus()).queue();
 				} catch (IOException e) {
 					event.reply(McConstants.ERROR_MESSAGE_GET_SERVER_STATUS).queue();
+					e.printStackTrace();
 				}
 				break;
 			case "add":
