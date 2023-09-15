@@ -22,4 +22,6 @@ public class McConstants {
 	public static final int NEXT_STATE_STATUS = 0x01;
 	public static final int NEXT_STATE_LOGIN = 0x02;
 
+	public static final String ERROR_MESSAGE_GET_SERVER_STATUS = "Server connection error.";
+
 }

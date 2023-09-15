@@ -1,8 +1,11 @@
 package whiteman;
 
+import java.io.IOException;
+
 import lombok.extern.log4j.Log4j2;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import whiteman.mc.status.McConstants;
 import whiteman.mc.status.McServerStatus;
 
 @Log4j2
@@ -20,8 +23,12 @@ public class WhiteListener extends ListenerAdapter {
 		if ("whiteman".equals(event.getName())) {
 			switch (event.getSubcommandName()) {
 			case "status":
-				McServerStatus status = new McServerStatus();
-				event.reply(status.getServerStatus()).queue();
+				try {
+					McServerStatus status = new McServerStatus();
+					event.reply(status.getServerStatus()).queue();
+				} catch (IOException e) {
+					event.reply(McConstants.ERROR_MESSAGE_GET_SERVER_STATUS).queue();
+				}
 				break;
 			case "add":
 				event.deferReply(true).queue();

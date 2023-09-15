@@ -40,7 +40,7 @@ public class Whiteman {
 			public void run() {
 				int online = status.getOnline();
 				if (online < 0) {
-					jda.getPresence().setActivity(Activity.listening("サーバー(ダウン中)"));
+					jda.getPresence().setActivity(Activity.listening("ダウンしたサーバー"));
 				} else {
 					jda.getPresence().setActivity(Activity.watching("勤務中の社員" + online + "人"));
 				}

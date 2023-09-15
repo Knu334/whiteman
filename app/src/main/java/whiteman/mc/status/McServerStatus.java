@@ -5,7 +5,6 @@ import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import whiteman.mc.status.dto.McHandShakeDataDto;
@@ -37,14 +36,14 @@ public class McServerStatus {
 		try {
 			McServerStatusDto dto = objectMapper.readValue(this.getServerStatus(), McServerStatusDto.class);
 			return dto.getPlayers().getOnline();
-		} catch (JsonProcessingException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return -1;
 	}
 
-	public String getServerStatus() {
-		String json = StringUtils.EMPTY;
+	public String getServerStatus() throws IOException {
+		String json = McConstants.ERROR_MESSAGE_GET_SERVER_STATUS;
 
 		try (McPacketDao dao = new McPacketDao(hostname, port)) {
 			// HandShake Request
@@ -77,7 +76,7 @@ public class McServerStatus {
 			// Pong Response
 			dao.readPacket();
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw e;
 		}
 
 		return json;
