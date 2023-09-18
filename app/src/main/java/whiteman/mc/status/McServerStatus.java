@@ -7,9 +7,11 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import whiteman.mc.status.dao.McPacketDao;
 import whiteman.mc.status.dto.McHandShakeDataDto;
 import whiteman.mc.status.dto.McPacketDto;
 import whiteman.mc.status.dto.McServerStatusDto;
+import whiteman.mc.status.util.McConstants;
 
 public class McServerStatus {
 
@@ -47,14 +49,15 @@ public class McServerStatus {
 
 		try (McPacketDao dao = new McPacketDao(hostname, port)) {
 			// HandShake Request
-			McPacketDto handshakeReq = new McPacketDto();
-			handshakeReq.setPacketId(McConstants.PACKET_ID_0X00);
 			McHandShakeDataDto handShakeData = new McHandShakeDataDto();
 			handShakeData.setProtocolVersion(McConstants.PROTOCOL_VERSION_1_20_1);
 			handShakeData.setServerAddressLength(hostname.length());
 			handShakeData.setServerAddress(hostname);
 			handShakeData.setServerPort(port);
 			handShakeData.setNextState(McConstants.NEXT_STATE_STATUS);
+
+			McPacketDto handshakeReq = new McPacketDto();
+			handshakeReq.setPacketId(McConstants.PACKET_ID_0X00);
 			handshakeReq.setData(handShakeData.toByteArray());
 			dao.writePacket(handshakeReq);
 

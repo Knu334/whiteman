@@ -1,4 +1,4 @@
-package whiteman.mc.status;
+package whiteman.mc.status.util;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

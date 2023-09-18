@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import lombok.Data;
-import whiteman.mc.status.McUtils;
+import whiteman.mc.status.util.McUtils;
 
 @Data
 public class McHandShakeDataDto {

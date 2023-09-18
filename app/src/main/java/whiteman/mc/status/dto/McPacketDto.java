@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 
 import lombok.Getter;
-import whiteman.mc.status.McUtils;
+import whiteman.mc.status.util.McUtils;
 
 @Getter
 public class McPacketDto {

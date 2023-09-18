@@ -1,4 +1,4 @@
-package whiteman.mc.status;
+package whiteman.mc.status.util;
 
 public class McConstants {
 

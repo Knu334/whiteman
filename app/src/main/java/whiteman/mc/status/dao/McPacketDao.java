@@ -1,4 +1,4 @@
-package whiteman.mc.status;
+package whiteman.mc.status.dao;
 
 import java.io.Closeable;
 import java.io.DataInputStream;
@@ -8,6 +8,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 import whiteman.mc.status.dto.McPacketDto;
+import whiteman.mc.status.util.McUtils;
 
 public class McPacketDao implements Closeable {
 	private Socket socket = new Socket();

@@ -5,8 +5,8 @@ import java.io.IOException;
 import lombok.extern.log4j.Log4j2;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import whiteman.mc.status.McConstants;
 import whiteman.mc.status.McServerStatus;
+import whiteman.mc.status.util.McConstants;
 
 @Log4j2
 public class WhiteListener extends ListenerAdapter {
