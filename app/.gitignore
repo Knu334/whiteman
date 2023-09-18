@@ -5,7 +5,5 @@
 build
 
 # Ignore Eclipse output
-.project
-.classpath
 .settings/
 bin/
