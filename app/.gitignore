@@ -5,5 +5,4 @@
 build
 
 # Ignore Eclipse output
-.settings/
 bin/
