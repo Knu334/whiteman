@@ -72,7 +72,7 @@ public class McServerStatus {
 
 			// Ping Request
 			McPacketDto pingReq = new McPacketDto();
-			pingReq.setPacketId(McConstants.PACKET_ID_0X00);
+			pingReq.setPacketId(McConstants.PACKET_ID_0X01);
 			pingReq.setData(System.currentTimeMillis());
 			dao.writePacket(pingReq);
 
