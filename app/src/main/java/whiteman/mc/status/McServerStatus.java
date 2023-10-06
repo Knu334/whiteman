@@ -50,7 +50,7 @@ public class McServerStatus {
 		try (McPacketDao dao = new McPacketDao(hostname, port)) {
 			// HandShake Request
 			McHandShakeDataDto handShakeData = new McHandShakeDataDto();
-			handShakeData.setProtocolVersion(McConstants.PROTOCOL_VERSION_1_20_1);
+			handShakeData.setProtocolVersion(McConstants.PROTOCOL_VERSION_1_20_2);
 			handShakeData.setServerAddressLength(hostname.length());
 			handShakeData.setServerAddress(hostname);
 			handShakeData.setServerPort(port);
