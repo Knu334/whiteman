@@ -18,6 +18,7 @@ public class McConstants {
 	public static final int PACKET_ID_0X01 = 0x01;
 
 	public static final int PROTOCOL_VERSION_1_20_1 = 763;
+	public static final int PROTOCOL_VERSION_1_20_2 = 764;
 
 	public static final int NEXT_STATE_STATUS = 0x01;
 	public static final int NEXT_STATE_LOGIN = 0x02;
