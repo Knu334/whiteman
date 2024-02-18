@@ -4,6 +4,7 @@ import java.io.Closeable;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
@@ -16,7 +17,7 @@ public class McPacketDao implements Closeable {
 	private DataOutputStream out = null;
 
 	public McPacketDao(String hostname, int port) throws IOException {
-		socket.connect(new InetSocketAddress(hostname, port));
+		socket.connect(new InetSocketAddress(InetAddress.getByName(hostname), port));
 		in = new DataInputStream(socket.getInputStream());
 		out = new DataOutputStream(socket.getOutputStream());
 	}
