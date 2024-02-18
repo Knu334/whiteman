@@ -34,7 +34,7 @@ public class Whiteman {
 
 		McServerStatus status = new McServerStatus();
 		Timer timer = new Timer();
-		timer.schedule(new TimerTask() {
+		timer.scheduleAtFixedRate(new TimerTask() {
 
 			@Override
 			public void run() {

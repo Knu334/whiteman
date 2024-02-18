@@ -9,5 +9,6 @@ services:
       BOT_TOKEN: 
       MC_HOST: 
       MC_PASSWORD: 
+      MC_PROTOCOL: 765
       TZ: Asia/Tokyo
     restart: always

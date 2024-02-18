@@ -17,6 +17,7 @@ public class McServerStatus {
 
 	private static String hostname = System.getenv(McConstants.ENV_HOSTNAME);
 	private static int port = McConstants.DEFAULT_PORT;
+	private static String protocol = System.getenv(McConstants.ENV_PROTOCOL);
 
 	static {
 		String portString = System.getenv(McConstants.ENV_PORT);
@@ -50,7 +51,7 @@ public class McServerStatus {
 		try (McPacketDao dao = new McPacketDao(hostname, port)) {
 			// HandShake Request
 			McHandShakeDataDto handShakeData = new McHandShakeDataDto();
-			handShakeData.setProtocolVersion(McConstants.PROTOCOL_VERSION_1_20_2);
+			handShakeData.setProtocolVersion(Integer.parseInt(protocol));
 			handShakeData.setServerAddressLength(hostname.length());
 			handShakeData.setServerAddress(hostname);
 			handShakeData.setServerPort(port);
