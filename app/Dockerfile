@@ -1,9 +1,9 @@
-FROM eclipse-temurin:17.0.7_7-jdk-alpine AS build
+FROM arm64v8/amazoncorretto:17-alpine-jdk AS build
 WORKDIR /app
 COPY . .
-RUN ./gradlew shadowJar
+RUN ./gradlew build
 
-FROM eclipse-temurin:17.0.7_7-jre-alpine
+FROM arm64v8/amazoncorretto:17-alpine-jdk
 WORKDIR /app
-COPY --from=build /app/build/libs/whiteman-all.jar .
-CMD [ "java", "-jar", "whiteman-all.jar" ]
+COPY --from=build /app/build/libs/whiteman.jar .
+CMD [ "java", "-jar", "whiteman.jar" ]
